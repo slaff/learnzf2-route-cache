@@ -1,0 +1,31 @@
+<?php
+return array(
+    // The RouteCache module needs a caching service called "var-cache" to do the actual saving of the data.
+    // If you don't have a caching service make sure to copy this file to 
+    // config/autoload/cache.local.php. 
+    'caches' => array (
+	    'var-cache' => array (
+	        'adapter' => array(
+	            'name' => 'filesystem',
+	            'options' => array (
+	                'cache_dir' => 'data/cache/var',
+	            )
+	        ),
+	        'plugins' => array(
+	            // Don't throw exceptions on cache errors
+	            'exception_handler' => array(
+	                'throw_exceptions' => false
+	            ),
+	        	'serializer' => array (
+	        		  'serializer' => 'Zend\Serializer\Adapter\PhpSerialize',
+	        	)
+	        )
+	    ),
+	),
+	
+	'service_manager'=> array(
+		'abstract_factories' => array (
+			'Zend\Cache\Service\StorageCacheAbstractServiceFactory'
+		)
+	)
+);
