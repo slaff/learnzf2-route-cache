@@ -1,6 +1,7 @@
 {
 	"name": "learnzf2/route-cache",
 	"description": "More speed with Cache Routing. This module is part of the  Learn ZF2 book",
+	"license": "BSD-3-Clause",
 	"keywords": [
 		  "performance",
 	      "route cache",
